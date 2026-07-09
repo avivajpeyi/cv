@@ -1,0 +1,52 @@
+\documentclass[a4paper,11pt]{article}
+
+
+% Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue
+\def\theme{MidnightBlue}
+
+
+\usepackage[style=ieee,url=true,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
+
+\usepackage{cv}
+\input{extras}
+
+\boldname{Vajpeyi}{Avi}{A.}
+
+
+
+\bibliography{papers/papers}
+
+% Selected first-author and student-led publications only (2-page limit)
+\nocite{Vajpeyi:2026:arXiva,Vajpeyi:2026:arXivb,Vajpeyi:2023:ApJ,Aimen:2026:PhRvD,Liu:2025:PhRvD}
+
+
+\begin{document}
+
+% Heading
+\headinginline{Avi Vajpeyi}{
+    \website{avivajpeyi.github.io} \\
+    \website{github.com/avivajpeyi}
+}
+
+
+% Page One
+\import{sections/}{education.tex}
+\import{sections/}{research.tex}
+\import{sections/}{grants.tex}
+
+\pagebreak
+
+% Page Two
+\section{Selected Publications}\label{publications}
+\printbibliography[heading=none]
+
+\begin{minipage}[t]{0.47\textwidth}
+{\import{sections/}{supervision_postgrad.tex}}
+\end{minipage} \hspace{0.04\textwidth} \begin{minipage}[t]{0.46\textwidth}
+{\import{sections/}{awards.tex}}
+\end{minipage}
+
+{\import{sections/}{hackathons.tex}}
+% ponytail: if this overflows to 3 pages again, trim \nocite or drop hackathons
+
+\end{document}
