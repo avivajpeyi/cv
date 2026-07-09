@@ -8,6 +8,7 @@
 \usepackage[style=ieee,url=true,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
 
 \usepackage{cv}
+\usepackage{orcidlink}
 \input{extras}
 
 \boldname{Vajpeyi}{Avi}{A.}
@@ -24,14 +25,17 @@
 
 % Heading
 \headinginline{Avi Vajpeyi}{
+    \email{avi.vajpeyi@gmail.com} \\
     \website{avivajpeyi.github.io} \\
-    \website{github.com/avivajpeyi}
+    \orcidlink{0000-0002-4146-1132} \href{https://orcid.org/0000-0002-4146-1132}{0000-0002-4146-1132}
 }
 
 
 % Page One
 \import{sections/}{education.tex}
-\import{sections/}{research.tex}
+\import{sections/}{positions.tex}
+\import{sections/}{software.tex}
+\import{sections/}{industry.tex}
 \import{sections/}{grants.tex}
 
 \pagebreak
@@ -41,12 +45,13 @@
 \printbibliography[heading=none]
 
 \begin{minipage}[t]{0.47\textwidth}
+\section{Supervisory Assistance}
 {\import{sections/}{supervision_postgrad.tex}}
+{\import{sections/}{talks_selected.tex}}
 \end{minipage} \hspace{0.04\textwidth} \begin{minipage}[t]{0.46\textwidth}
 {\import{sections/}{awards.tex}}
-\end{minipage}
-
 {\import{sections/}{hackathons.tex}}
+\end{minipage}
 % ponytail: if this overflows to 3 pages again, trim \nocite or drop hackathons
 
 \end{document}
