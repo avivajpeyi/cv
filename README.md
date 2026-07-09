@@ -14,9 +14,10 @@ latexmk -xelatex cv.tex
 ```
 
 CI (`.github/workflows/build-cv.yml`) compiles `tex/cv.tex` on every push that
-touches `tex/**` and commits the result to `cv.pdf`, giving it a stable URL:
+touches `tex/**` and force-pushes the result to the orphan `pdf` branch (no
+shared history with `main`), giving it a stable URL:
 
-- <https://raw.githubusercontent.com/avivajpeyi/cv/main/cv.pdf>
+- <https://raw.githubusercontent.com/avivajpeyi/cv/pdf/cv.pdf>
 
 ## Layout
 

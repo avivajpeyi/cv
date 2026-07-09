@@ -136,3 +136,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.
+
+
+# compiled output lives on the orphan "pdf" branch, not main
+cv.pdf

@@ -1,8 +1,9 @@
 name: Build CV
 
-# Compiles tex/cv.tex (XeLaTeX + biber, via latexmk) and commits the
-# resulting PDF back to the repo at cv.pdf, so it always has a stable URL:
-# https://raw.githubusercontent.com/avivajpeyi/cv/main/cv.pdf
+# Compiles tex/cv.tex (XeLaTeX + biber, via latexmk) and pushes the
+# resulting PDF to the orphan `pdf` branch (no shared history with main),
+# so it always has a stable URL:
+# https://raw.githubusercontent.com/avivajpeyi/cv/pdf/cv.pdf
 
 permissions:
   contents: write
@@ -31,15 +32,15 @@ jobs:
           working_directory: tex
           latexmk_use_xelatex: true
 
-      - name: Commit compiled PDF
+      - name: Push compiled PDF to orphan pdf branch
         run: |
-          cp tex/cv.pdf cv.pdf
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir /tmp/pdf-branch
+          cp tex/cv.pdf /tmp/pdf-branch/cv.pdf
+          git checkout --orphan pdf
+          git rm -rf . > /dev/null
+          cp /tmp/pdf-branch/cv.pdf cv.pdf
           git add cv.pdf
-          if ! git diff --staged --quiet; then
-            git commit -m "chore: rebuild compiled CV PDF [skip ci]"
-            git push
-          else
-            echo "PDF unchanged, nothing to commit"
-          fi
+          git commit -m "chore: rebuild compiled CV PDF [skip ci]"
+          git push origin pdf --force
