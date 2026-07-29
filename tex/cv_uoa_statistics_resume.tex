@@ -1,0 +1,31 @@
+% Two-page summary of cv_uoa_statistics.tex.
+% NOTE: the UoA advertisement requires a full publication list and a full list
+% of courses taught -- submit cv_uoa_statistics.tex for that application.
+% This short version is for HR screening, networking, and introductions.
+\documentclass[a4paper,11pt]{article}
+
+\def\theme{MidnightBlue}
+\usepackage{biblatex}
+\usepackage{cv}
+\usepackage{microtype}
+
+\begin{document}
+
+\headinginline{Avi Vajpeyi {\color{color-detail}| Resume}}{
+    \email{avi.vajpeyi@auckland.ac.nz} \\
+    \website{avivajpeyi.github.io} \\
+    \href{https://orcid.org/0000-0002-4146-1132}{ORCID: 0000-0002-4146-1132}
+}
+
+\import{sections/}{positions.tex}
+\import{sections/}{education.tex}
+\import{sections/}{research.tex}
+\import{sections/}{resume_teaching.tex}
+\import{sections/}{resume_supervision.tex}
+\import{sections/}{grants.tex}
+
+\import{sections/}{software.tex}
+
+\import{sections/}{references_uoa.tex}
+
+\end{document}

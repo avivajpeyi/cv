@@ -1,0 +1,27 @@
+\nocite{*}
+
+\section{Publications}\label{publications}
+
+\renewcommand*{\bibfont}{\footnotesize}
+\defbibfilter{shortauthor}{
+  not category=collaboration
+  and not category=softwareoutput
+}
+
+\small{18 refereed papers and preprints as a named short author (5 as lead
+author), plus 30 large-collaboration publications. Author name shown in
+\textbf{bold}.}
+\vspace{4pt}
+
+\textbf{Short-author publications and preprints}
+
+\printbibliography[heading=none,filter=shortauthor]
+
+\textbf{Large-collaboration publications}
+
+\small{Selected collaboration papers to which Avi Vajpeyi contributed through
+software development, data analysis, or manuscript development. A
+\link{https://scholar.google.com/citations?user=hP-8RuUAAAAJ}{full list of
+collaboration papers is available on Google Scholar}.}
+
+\printbibliography[heading=none,category=collaboration]
