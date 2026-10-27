@@ -5,6 +5,8 @@
 \input{extras}
 \boldname{Vajpeyi}{Avi}{A.}
 \addbibresource{papers/papers.bib}
+\DeclareFieldFormat[misc]{title}{\mkbibemph{#1}\addspace\mkbibbrackets{preprint}}
+\AtEveryBibitem{\clearfield{month}\clearfield{day}\clearfield{note}\clearfield{eid}\clearfield{eprintclass}}
 \hypersetup{pdftitle={Avi Vajpeyi - CV - Anthropic STEM Fellows},pdfauthor={Avi Vajpeyi}}
 
 \begin{document}
@@ -15,65 +17,69 @@
 }
 
 \section{Research Profile}
-Astrostatistician developing Bayesian methods and research software for noisy,
-correlated time series. I work from mathematical models through implementation
-and simulation studies, checking when assumptions hold and where approximations
-fail. PhD in astrophysics; background in computer science and physics.
-
-\smallskip
-\textbf{US permanent resident; no visa sponsorship required.}
+Bayesian statistician and computational astrophysicist developing methods and
+software for noisy, correlated time series. My work combines mathematical
+modelling, simulation and inference to test how scientific conclusions depend
+on assumptions and approximations. PhD in astrophysics; postdoctoral research
+at the University of Auckland since 2023.
 
 \import{sections/}{positions.tex}
 
 \section{Selected Research and Scientific Software}
 \denseouterlist{
 \entrymid[\textbullet]
-{\textbf{Bayesian spectral estimation} --- \link{https://github.com/nz-gravity/LogPSplinePSD}{LogPSplinePSD}}{}
-{Develop P-spline models and JAX/NumPyro inference for correlated and
-time-varying detector noise. Implement variational initialisation and HMC/NUTS;
-test recovery of known spectral matrices and uncertainty calibration on
-simulations. First-author multivariate study tests the diagonal-noise
-approximation against asymmetric LISA noise; co-authored VI study compares
-posterior approximations with HMC.}
+{\textbf{Bayesian noise modelling and validation} --- \link{https://github.com/nz-gravity/LogPSplinePSD}{LogPSplinePSD}}{}
+{Develop P-spline spectral models and JAX/NumPyro inference for gravitational-wave
+detector noise. First-author multivariate study uses simulations with known
+spectra to test uncertainty coverage and shows when a diagonal-covariance
+approximation fails for asymmetric LISA noise. Co-authored variational-inference
+study compares spectral estimates and computational cost with HMC targeting
+the same posterior.}
 
 \entrymid[\textbullet]
 {\textbf{Differentiable time--frequency analysis} --- \link{https://github.com/pywavelet/wdm_transform}{wdm-transform}}{}
 {First author and software developer of an explicit Wilson--Daubechies--Meyer
-transform for gravitational-wave analysis. Connect mathematical derivations
-with NumPy/JAX implementations and numerical checks of reconstruction,
-orthogonality and coefficient covariance, supporting inference with
-time-localised noise models.}
+transform. Connect mathematical derivations with NumPy/JAX implementations
+and numerical checks of reconstruction, orthogonality and coefficient covariance.
+A controlled LISA example verifies agreement between wavelet- and
+frequency-domain posteriors under a shared stationary noise model.}
 
 \entrymid[\textbullet]
 {\textbf{Surrogates for expensive simulations} --- \link{https://github.com/COMPAS-Surrogate/lnl_surrogate}{COMPAS LnL Surrogate}}{}
-{Built a likelihood-surrogate package linking COMPAS population simulations
-to Gaussian-process models and Bayesian optimisation. Implemented active
-learning with exploratory and exploitative acquisition functions, with mock
-likelihood examples for checking surrogate predictions and uncertainty.}
+{Built a Gaussian-process likelihood-surrogate package for COMPAS binary-star
+population simulations. Implemented Bayesian optimisation and active learning
+with exploratory and exploitative acquisition functions; included mock-likelihood
+examples to check predictions and uncertainty before applying the workflow
+to expensive simulations.}
 
 \entrymid[\textbullet]
 {\textbf{Generative waveform models} --- \link{https://github.com/starccato/starccato_jax}{Starccato-JAX}}{}
-{Co-develop JAX waveform generators for core-collapse supernova signals and
-detector glitches. The package provides pretrained decoders and reproducible
-latent-space sampling for waveform studies; guide related student research
-on supernova detection with normalising flows.}
+{Co-develop JAX variational autoencoders for core-collapse supernova and
+detector-glitch waveforms, with pretrained decoders and reproducible latent-space
+sampling. Provide day-to-day research guidance on related supernova-detection
+studies using normalising flows.}
 }
 
-\section{Tools and Working Practice}
-Python, NumPy/SciPy, JAX, NumPyro, ArviZ; TensorFlow, Gaussian processes,
+\section{Scientific Computing and Coding Agents}
+Python, NumPy/SciPy, JAX, NumPyro, ArviZ and TensorFlow; Gaussian processes,
 variational inference, HMC, nested sampling; Git, testing and computing-cluster
-workflows. Use Claude Code and other coding agents daily to implement
-mathematical models and run cluster jobs, reviewing code and validating results.
+workflows.
+
+Use Claude Code and other coding agents almost daily: write priors and
+likelihoods in LaTeX, then have agents implement them with links between
+equations and code. Review assumptions and numerical results; identified
+inappropriate stationarity assumptions and omitted time--frequency covariance
+in agent suggestions.
 
 \newpage
 \section{Research Software Contributions}
 \denseouterlist{
 \entrymid[\textbullet]
 {\textbf{\link{https://arxiv.org/abs/1909.11873}{parallel\_bilby}, bilby / bilby\_pipe and asimov}}{}
-{Co-developed parallel\_bilby for computationally demanding LVK parameter
-estimation; led its ADACS-funded upgrade for the fourth observing run.
-Contributed maintenance to bilby/bilby\_pipe and to asimov's coordination of
-parameter-estimation workflows on computing clusters.}
+{Co-developed parallel\_bilby for LVK gravitational-wave parameter estimation;
+led its ADACS-supported upgrade for the fourth observing run. Contributed
+maintenance to bilby/bilby\_pipe and to asimov's coordination of
+computing-cluster workflows.}
 }
 
 \section{Industry Experience}
