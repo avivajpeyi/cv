@@ -1,0 +1,108 @@
+\documentclass[letterpaper,11pt]{article}
+\def\theme{MidnightBlue}
+\usepackage[style=ieee,url=false,doi=false,eprint=true,maxbibnames=99,sorting=none,dashed=false]{biblatex}
+\usepackage{cv}
+\input{extras}
+\boldname{Vajpeyi}{Avi}{A.}
+\addbibresource{papers/papers.bib}
+\hypersetup{pdftitle={Avi Vajpeyi - CV - Anthropic STEM Fellows},pdfauthor={Avi Vajpeyi}}
+
+\begin{document}
+\headinginline{Avi Vajpeyi}{
+  \email{avi.vajpeyi@auckland.ac.nz}\\
+  \website{avivajpeyi.github.io}\\
+  \website{github.com/avivajpeyi}
+}
+
+\section{Research Profile}
+Astrostatistician developing Bayesian methods and research software for noisy,
+correlated time series. I work from mathematical models through implementation
+and simulation studies, checking when assumptions hold and where approximations
+fail. PhD in astrophysics; background in computer science and physics.
+
+\smallskip
+\textbf{US permanent resident; no visa sponsorship required.}
+
+\import{sections/}{positions.tex}
+
+\section{Selected Research and Scientific Software}
+\denseouterlist{
+\entrymid[\textbullet]
+{\textbf{Bayesian spectral estimation} --- \link{https://github.com/nz-gravity/LogPSplinePSD}{LogPSplinePSD}}{}
+{Develop P-spline models and JAX/NumPyro inference for correlated and
+time-varying detector noise. Implement variational initialisation and HMC/NUTS;
+test recovery of known spectral matrices and uncertainty calibration on
+simulations. First-author multivariate study tests the diagonal-noise
+approximation against asymmetric LISA noise; co-authored VI study compares
+posterior approximations with HMC.}
+
+\entrymid[\textbullet]
+{\textbf{Differentiable time--frequency analysis} --- \link{https://github.com/pywavelet/wdm_transform}{wdm-transform}}{}
+{First author and software developer of an explicit Wilson--Daubechies--Meyer
+transform for gravitational-wave analysis. Connect mathematical derivations
+with NumPy/JAX implementations and numerical checks of reconstruction,
+orthogonality and coefficient covariance, supporting inference with
+time-localised noise models.}
+
+\entrymid[\textbullet]
+{\textbf{Surrogates for expensive simulations} --- \link{https://github.com/COMPAS-Surrogate/lnl_surrogate}{COMPAS LnL Surrogate}}{}
+{Built a likelihood-surrogate package linking COMPAS population simulations
+to Gaussian-process models and Bayesian optimisation. Implemented active
+learning with exploratory and exploitative acquisition functions, with mock
+likelihood examples for checking surrogate predictions and uncertainty.}
+
+\entrymid[\textbullet]
+{\textbf{Generative waveform models} --- \link{https://github.com/starccato/starccato_jax}{Starccato-JAX}}{}
+{Co-develop JAX waveform generators for core-collapse supernova signals and
+detector glitches. The package provides pretrained decoders and reproducible
+latent-space sampling for waveform studies; guide related student research
+on supernova detection with normalising flows.}
+}
+
+\section{Tools and Working Practice}
+Python, NumPy/SciPy, JAX, NumPyro, ArviZ; TensorFlow, Gaussian processes,
+variational inference, HMC, nested sampling; Git, testing and computing-cluster
+workflows. Use Claude Code and other coding agents daily to implement
+mathematical models and run cluster jobs, reviewing code and validating results.
+
+\newpage
+\section{Research Software Contributions}
+\denseouterlist{
+\entrymid[\textbullet]
+{\textbf{\link{https://arxiv.org/abs/1909.11873}{parallel\_bilby}, bilby / bilby\_pipe and asimov}}{}
+{Co-developed parallel\_bilby for computationally demanding LVK parameter
+estimation; led its ADACS-funded upgrade for the fourth observing run.
+Contributed maintenance to bilby/bilby\_pipe and to asimov's coordination of
+parameter-estimation workflows on computing clusters.}
+}
+
+\section{Industry Experience}
+\denseouterlist{
+\entrymid[\textbullet]{\textbf{Software Consultant, Quaisr}}{2022--2023}
+{Built data-agnostic ML and active-learning blocks linking TensorFlow backends
+to visual workflows.}
+\entrymid[\textbullet]{\textbf{Software Engineer, Bamboo Learning}}{2018--2019}
+{Developed NLP components and maths/listening-comprehension content for Alexa.}
+\entrymid[\textbullet]{\textbf{Machine Learning Consultant, MOAD}}{2018}
+{Deployed CNN image classifiers and delivered hands-on machine-learning tutorials.}
+}
+
+\section{Education}
+\textbf{PhD, Astrophysics}, Monash University, 2019--2022.
+Thesis: \link{https://doi.org/10.26180/21800807}{Astrophysical Inference in the Data Driven Era}.\\
+\textbf{BA, Computer Science and Physics}, College of Wooster, 2014--2018.
+GPA 4.0/4.0; valedictorian. Undergraduate thesis on GPU granular-flow simulations.
+
+\section{Selected Publications}
+{\small
+\nocite{Liu:2026:2608.22245,Vajpeyi:2026:arXiva,Vajpeyi:2026:arXivb,Zahraoui:2026:PhRvD,Liu:2025:PhRvD,Smith:2020:MNRAS}
+\printbibliography[heading=none]
+}
+
+\section{Communication and Mentoring}
+Provide day-to-day postgraduate supervision in Bayesian noise estimation and waveform
+modelling. Independently mentored software-engineering student teams at Monash.
+Delivered a LISA research talk and a separate Bayesian parameter-estimation
+training lecture in Beijing (August--September 2026); BayesComp invited session
+on Bayesian computation in astrophysics (2025).
+\end{document}

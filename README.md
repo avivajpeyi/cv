@@ -11,7 +11,17 @@ content; this repo just builds it.
 ```bash
 cd tex
 latexmk -xelatex cv.tex
+latexmk -xelatex cv_anthropic.tex
 ```
+
+Alternatively, run `bash scripts/build-cvs.sh` from the repository root. This
+uses XeLaTeX + Biber directly when latexmk is unavailable, checks the final logs,
+and writes named academic and application PDFs under `output/pdf/`.
+
+`tex/cv_anthropic.tex` is the compact STEM Fellows version. It cites selected
+keys from the same `tex/papers/papers.bib`; it has no separate bibliography.
+CI attaches both PDFs to each build, including pull requests. On main it also
+publishes `avi_vajpeyi_cv_anthropic.pdf` beside `cv.pdf` on the `pdf` branch.
 
 CI (`.github/workflows/build-cv.yml`) compiles `tex/cv.tex` on every push that
 touches `tex/**` and force-pushes the result to the orphan `pdf` branch (no

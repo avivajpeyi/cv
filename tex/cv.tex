@@ -22,17 +22,19 @@
 
 % Heading
 \headinginline{Avi Vajpeyi}{
+    \email{avi.vajpeyi@auckland.ac.nz} \\
     \website{avivajpeyi.github.io} \\ 
     \website{github.com/avivajpeyi}
 }
 
 
 % Page One
+\import{sections/}{positions.tex}
 \import{sections/}{education.tex}
 \import{sections/}{research.tex}
+\import{sections/}{software.tex}
 \import{sections/}{industry.tex}
 
-\pagebreak
 
 % Page Two
 
@@ -42,16 +44,12 @@
 {\import{sections/}{grants.tex}}
 {\import{sections/}{hackathons.tex}}
 
-\pagebreak
 
-\begin{minipage}[t]{0.47\textwidth}
-{ \import{sections/}{teaching.tex}}
-\end{minipage} \hspace{0.04\textwidth} \begin{minipage}[t]{0.46\textwidth}
-{\import{sections/}{awards.tex}}
+% Teaching and references must be able to flow across pages.
+\import{sections/}{teaching.tex}
+\import{sections/}{awards.tex}
 \import{sections/}{references.tex}
-\end{minipage}
 
-\pagebreak
 
 \import{sections/}{supervision.tex}
 

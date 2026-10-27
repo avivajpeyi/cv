@@ -11,7 +11,9 @@ permissions:
 on:
   push:
     branches: ['main']
-    paths: ['tex/**']
+    paths: ['tex/**', 'scripts/build-cvs.sh', '.github/workflows/build-cv.yml']
+  pull_request:
+    paths: ['tex/**', 'scripts/build-cvs.sh', '.github/workflows/build-cv.yml']
   workflow_dispatch:
 
 concurrency:
@@ -28,19 +30,35 @@ jobs:
       - name: Compile CV
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: cv.tex
+          root_file: |
+            cv.tex
+            cv_anthropic.tex
           working_directory: tex
           latexmk_use_xelatex: true
 
+      - name: Name application PDF
+        run: cp tex/cv_anthropic.pdf tex/avi_vajpeyi_cv_anthropic.pdf
+
+      - name: Upload both CVs for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: avi-vajpeyi-cvs
+          path: |
+            tex/cv.pdf
+            tex/avi_vajpeyi_cv_anthropic.pdf
+
       - name: Push compiled PDF to orphan pdf branch
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir /tmp/pdf-branch
           cp tex/cv.pdf /tmp/pdf-branch/cv.pdf
+          cp tex/avi_vajpeyi_cv_anthropic.pdf /tmp/pdf-branch/avi_vajpeyi_cv_anthropic.pdf
           git checkout --orphan pdf
           git rm -rf . > /dev/null
           cp /tmp/pdf-branch/cv.pdf cv.pdf
-          git add cv.pdf
+          cp /tmp/pdf-branch/avi_vajpeyi_cv_anthropic.pdf avi_vajpeyi_cv_anthropic.pdf
+          git add cv.pdf avi_vajpeyi_cv_anthropic.pdf
           git commit -m "chore: rebuild compiled CV PDF [skip ci]"
           git push origin pdf --force
